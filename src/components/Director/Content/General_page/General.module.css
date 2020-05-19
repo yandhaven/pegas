@@ -2,8 +2,8 @@
     display: grid;
     justify-content: center;
     grid-template-columns: auto;
-    grid-template-areas: "top_c top_c top_c top_c " "medium_c medium_c medium_c medium_s_c " "bot_c bot_c bot_c bot_c";
-    grid-gap: 5px;
+    grid-template-areas: "top_c top_c top_c top_c " "middle_c middle_c middle_c middle_s_c " "bot_c bot_c bot_c bot_c";
+    grid-gap: 7px;
     
     /* grid-template-columns: 1fr 10fr; */
    
@@ -12,38 +12,53 @@
     text-decoration: none;
     /* overflow: auto; */
     /* height: 300px; */
+    
 
 
+}
+
+.sidetable {
+
+    height: 245px;
+    overflow-y: scroll;
 }
 
 
 .top_c {
+    border-radius: 7px;
     display: grid;
-    justify-content: center;
+    justify-content: flex;
     grid-template-columns: auto auto auto auto;
     padding: 30px;
     grid-area: top_c;
     grid-gap: 25px;
-    background-color: rgba(245, 245, 245, 0.262);
+    background-color: rgba(255, 255, 255, 0.404);
 }
 
-.medium_c {
+.middle_c {
+    display: grid;
+    justify-content: center;
+    border-radius: 7px;
+    
     padding: 30px;
-    grid-area: medium_c;
-    background-color: rgba(245, 245, 245, 0.262);
+    grid-area: middle_c;
+    background-color: rgba(255, 255, 255, 0.404);
     
 }
 
-.medium_s_c {
+.middle_s_c {
+    border-radius: 7px;
+    border-radius: 7px;
     padding: 30px;
-    grid-area: medium_s_c;
-    background-color: rgba(245, 245, 245, 0.262);
+    grid-area: middle_s_c;
+    background-color: rgba(255, 255, 255, 0.404);
 }
 
 .bot_c {
+    border-radius: 7px;
     padding: 30px;
     grid-area: bot_c;
-    background-color: rgba(245, 245, 245, 0.262);
+    background-color: rgba(255, 255, 255, 0.404);
 }
 
 
@@ -60,5 +75,19 @@
     border-radius: 7px;
     background: rgb(58,101,180);
     background: linear-gradient(331deg, rgba(58,101,180,1) 0%, rgba(153,205,255,1) 0%, rgba(10,175,137,1) 56%, rgba(62,138,55,1) 100%);
+}
+
+.invoicecard {
+    opacity: 90%;
+    border-radius: 7px;
+    background: rgb(28,126,254);
+    background: linear-gradient(153deg, rgba(28,126,254,1) 0%, rgba(255,1,1,1) 39%, rgba(255,255,255,1) 100%);
+}
+
+.kmcard {
+    opacity: 90%;
+    border-radius: 7px;
+    background: rgb(8,8,7);
+    background: linear-gradient(153deg, rgba(8,8,7,1) 11%, rgba(92,255,85,1) 83%, rgba(255,255,255,1) 100%);
 }
 
