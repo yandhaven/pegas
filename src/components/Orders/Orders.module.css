@@ -1,0 +1,12 @@
+.gridcontainer {
+    grid-area: c;
+    /* display: grid; */
+    justify-content: start;
+    grid-template-columns: auto;
+    background-color:none;
+    grid-column-gap: 30px;
+    padding: 50px;
+    padding-left: 0%;
+    text-decoration: none;
+    
+  }
