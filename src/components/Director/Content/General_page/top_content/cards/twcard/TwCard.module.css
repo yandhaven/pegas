@@ -1,0 +1,6 @@
+.twcard {
+    opacity: 90%;
+    border-radius: 7px;
+    background: rgb(58,101,180);
+    background: linear-gradient(331deg, rgba(58,101,180,1) 0%, rgba(153,205,255,1) 0%, rgba(10,175,137,1) 56%, rgba(62,138,55,1) 100%);
+}

@@ -3,6 +3,10 @@ import modules from './General.module.css'
 import MiddleChart from './middle_content/MiddleChart'
 import MiddleRSide from './middle_content/MIddleRSide'
 import BottomTable from './bottom_content/BottomTable'
+import FuelCard from './top_content/cards/as24_card/FuelCard'
+import InvoiceCard from './top_content/cards/invoicecard/InvoiceCard'
+import TwCard from './top_content/cards/twcard/TwCard'
+import KmCard from './top_content/cards/kmcard/KmCard'
 // import as24logo from './images/as24logo.png'
 
 const General = () => {
@@ -10,57 +14,11 @@ const General = () => {
 
         <div className={modules.gridcontainer}>
 
-            <div className={modules.top_c}>
-
-
-
-                <div class="card  mb-3 shadow rounded-lg bg-transparent" style={{ width: "370px" }}>
-                    <div className={modules.as24card}>
-                        <div class="card-body text-warning bg-transparent">
-                            <h5 class="display-4">6490 liters <i class="fas fa-gas-pump"></i></h5>
-                            <p class="card-text">You consummed 6490 liters of diesel today !</p>
-                            <div class="card-footer bg-blue text-warning shadow-lg rounded-lg"><span class="fa fa-refresh" /> Updated 15 min ago.</div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="card  mb-3 shadow rounded-lg bg-transparent" style={{ width: "370px" }}>
-                    <div className={modules.twcard}>
-                        <div class="card-body text-light bg-transparent">
-                            <h5 class="display-4">21 of 43 <span /> <span class="fa fa-truck" /></h5>
-                            <p class="card-text">You have 21 of 43 trucks right now on work! </p>
-                            <div class="card-footer text-light shadow-lg rounded-lg"><span class="fa fa-refresh" /> Updated 12 min ago.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card  mb-3 shadow rounded-lg bg-transparent" style={{ width: "370px" }}>
-                    <div className={modules.invoicecard}>
-                        <div class="card-body text-light bg-transparent">
-                            <h5 class="display-4">4 Invoices <i class="fas fa-file-invoice-dollar"></i> </h5>
-                            <p class="card-text">You have 4 overdue invoices!</p>
-                            <div class="card-footer bg-blue text-light shadow-lg rounded-lg"><span class="fa fa-refresh" /> Updated 15 min ago.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card  mb-3 shadow rounded-lg bg-transparent" style={{ width: "370px" }}>
-                    <div className={modules.kmcard}>
-                        <div class="card-body text-light bg-transparent">
-                            <h5 class="display-4">16490 KM</h5>
-                            <p class="card-text">You have done 16490 km today!</p>
-                            <div class="card-footer bg-blue text-light shadow-lg rounded-lg"><span class="fa fa-refresh" /> Updated 15 min ago.</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div className={modules.top_c}> <FuelCard /> <TwCard /> <InvoiceCard /><KmCard /></div>
             <div className={modules.middle_c}> <MiddleChart /> </div>
-            <div className={modules.middle_s_c}> <MiddleRSide/></div>
+            <div className={modules.middle_s_c}> <MiddleRSide /></div>
 
-            <div className={modules.bot_c}> <BottomTable/> </div>
+            <div className={modules.bot_c}> <BottomTable /> </div>
 
 
         </div>

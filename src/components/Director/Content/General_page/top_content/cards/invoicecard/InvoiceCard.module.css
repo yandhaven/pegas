@@ -1,0 +1,6 @@
+.invoicecard {
+    opacity: 90%;
+    border-radius: 7px;
+    background: rgb(28,126,254);
+    background: linear-gradient(153deg, rgba(28,126,254,1) 0%, rgba(255,1,1,1) 39%, rgba(255,255,255,1) 100%);
+}
