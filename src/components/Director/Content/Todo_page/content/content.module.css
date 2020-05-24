@@ -1,0 +1,25 @@
+.gencontent {
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.337);
+    padding: 20px;
+}
+
+.sidebartopcontent {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.337);
+}
+
+.tsidebarbutton{
+    display: grid;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+.actoptbtn {
+    padding: 3px;
+}
+.tablecont {
+    height: 800px;
+    overflow-y: scroll;
+}

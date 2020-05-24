@@ -1,0 +1,48 @@
+.gridcontainer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto;
+    grid-template-areas: "gen_c gen_c gen_c st_c " "gen_c gen_c gen_c sb_c ";
+    grid-gap: 7px;
+    
+    /* grid-template-columns: 10fr 1fr; */
+   
+    grid-column-gap: 15px;
+    padding: 25px;
+    text-decoration: none;
+    /* overflow: auto; */
+    /* height: 300px; */
+    /* background-color: rgb(109, 107, 97); */
+    
+
+
+}
+
+
+.gencont {
+    width: 100%;
+    /* display: grid; */
+  
+
+    grid-area: gen_c;
+    /* background-color: lavender; */
+}
+
+.stcont {
+    /* width: 350px; */
+    
+    /* overflow-y: scroll; */
+    /* height: 500px; */
+    display: grid;
+    grid-area: st_c;
+    
+}
+
+.sbcont {
+    /* width: 350px; */
+    /* overflow-y: scroll; */
+    /* height: 300px; */
+    display: grid;
+    grid-area: sb_c;
+    
+}
