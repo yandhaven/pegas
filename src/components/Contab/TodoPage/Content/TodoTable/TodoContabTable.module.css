@@ -1,0 +1,13 @@
+.gencontent {
+    height: 916px;
+
+}
+
+.tablecont{
+
+    height: 800px;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+
+.tablecont::-webkit-scrollbar { width: 0 !important }

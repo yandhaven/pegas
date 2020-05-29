@@ -1,0 +1,4 @@
+.gencontainer {
+    display: grid;
+    justify-content: center;
+}

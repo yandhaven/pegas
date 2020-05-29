@@ -4,8 +4,6 @@ import Moment from 'react-moment'
 
 const GeneralContent = (props) => {
 
-    console.log('form test')
-    console.log(props)
 
     if (props.todos === null) {
         return <div className={modules.loader}>
