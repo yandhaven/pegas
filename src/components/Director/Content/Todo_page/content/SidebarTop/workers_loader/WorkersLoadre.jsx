@@ -8,7 +8,7 @@ const WorkerLoader = (props) => {
     }
     
     return (
-        <select class="custom-select" onChange={props.onselectName} id="inputGroupSelect01">
+        <select class="custom-select" onChange={props.onselectName} id="inputGroupSelect01" required>
             <option selected></option>
 
             {props.workers.map(worker => {

@@ -54,7 +54,7 @@ export let createTodo = (isSubmited) => {
 
 }
 //Body reducer.
-const directorReducer = (state = initialState, action) => {
+const contabReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOAD_TODO': {
             
@@ -98,14 +98,7 @@ const directorReducer = (state = initialState, action) => {
             return newState
         }
 
-        case 'CREATE_TODO': {
-            let newState = {...state}
-            newState.createWork = {...state.createWork}
-            newState.createWork.isSubmited = {...state.createWork.isSubmited}
-            newState.createWork.isSubmited = action.isSubmited
-            
-            return newState
-        }
+        
 
         
 
@@ -117,4 +110,4 @@ const directorReducer = (state = initialState, action) => {
     }
 
 }
-export default directorReducer;
+export default contabReducer;
