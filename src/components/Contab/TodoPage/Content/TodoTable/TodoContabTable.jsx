@@ -4,7 +4,13 @@ import Moment from 'react-moment';
 import { NavLink } from 'react-router-dom';
 
 
-const TodoContabTable = () => {
+const TodoContabTable = (props) => {
+    if (props.todos === null) {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
     return (
         <div className={modules.gencontent}>
             <h5 className="bg-dark rounded-lg text-light" style={{ textAlign: "center" }}>TO DO List activity</h5>
@@ -24,16 +30,25 @@ const TodoContabTable = () => {
                         </tr>
                     </thead>
                     <tbody class="rounded-lg">
-                        <tr class="shadow ">
-                            <th scope="row"><NavLink to='/todo/id'>21</NavLink></th>
-                            <td>Some text</td>
-                            <td>Some text</td>
-                            <td>Some text <i class="far fa-check-circle"></i></td>
-                            <td><Moment format="YYYY/MM/DD">2020/05/05</Moment></td>
-                            <td><Moment format="YYYY/MM/DD">2020/05/05</Moment></td>
-                            <td><Moment format="YYYY/MM/DD">2020/05/05</Moment></td>
-                            <td><button type="button" class="btn btn-info" style={{ margin: "3px" }}>Info</button></td>
-                        </tr>
+
+                        {props.todos.map(todos => {
+                            return (
+
+                                <tr class="shadow ">
+                                    <th scope="row"><NavLink to='/todo/id'>{todos.todo_id}</NavLink></th>
+                                    <td>{todos.worker_name}</td>
+                                    <td>{todos.subject}</td>
+                                    <td>Some status <i class="far fa-check-circle"></i></td>
+                                    <td><Moment format="YYYY/MM/DD">{todos.create_date}</Moment></td>
+                                    <td><Moment format="YYYY/MM/DD">{todos.todo_last_update}</Moment></td>
+                                    <td><Moment format="YYYY/MM/DD">{todos.till_date}</Moment></td>
+                                    <td><button type="button" class="btn btn-info" style={{ margin: "3px" }}>Info</button></td>
+                                </tr>
+
+                            )
+                        })}
+
+
 
 
                     </tbody>

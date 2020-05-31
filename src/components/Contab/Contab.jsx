@@ -17,7 +17,7 @@ const Contab = () => {
             <div className={modules.app_wrapper_content}>
 
             <Route exact path="/contab" render={() => <ContabGeneralPage/>} />
-            <Route exact path="/contab/todo" render={() => <TodoPageContab/>} />
+            <Route exact path="/contab/:workerid/todo" render={() => <TodoPageContab/>} />
 
                 
 
