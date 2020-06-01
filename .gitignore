@@ -9,6 +9,7 @@ api.js*
 eventer.js*
 apiQueries.js*
 /api
+.pem
 
 # testing
 /coverage
