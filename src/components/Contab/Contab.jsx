@@ -4,7 +4,7 @@ import TodoPageContab from './TodoPage/TodoPageContab';
 import ContabGeneralPage from './GeneralPage/ContabGeneralPage';
 import modules from './Contab.module.css'
 import { Route } from 'react-router-dom';
-import { isModifier } from 'typescript';
+import ContabTodoApartContainer from './TodoPage/Content/TodoApart/ContabTodoApartContainer';
 
 const Contab = () => {
 
@@ -18,6 +18,7 @@ const Contab = () => {
 
             <Route exact path="/contab" render={() => <ContabGeneralPage/>} />
             <Route exact path="/contab/:workerid/todo" render={() => <TodoPageContab/>} />
+            <Route exact path="/contab/:workerid/todo/:todoid" render={() => <ContabTodoApartContainer/>} />
 
                 
 

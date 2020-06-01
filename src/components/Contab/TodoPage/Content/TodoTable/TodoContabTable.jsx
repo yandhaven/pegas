@@ -35,7 +35,7 @@ const TodoContabTable = (props) => {
                             return (
 
                                 <tr class="shadow ">
-                                    <th scope="row"><NavLink to='/todo/id'>{todos.todo_id}</NavLink></th>
+                                    <th scope="row"><NavLink to={'/contab/'+todos.worker_id+'/todo/'+todos.todo_id}>{todos.todo_id}</NavLink></th>
                                     <td>{todos.worker_name}</td>
                                     <td>{todos.subject}</td>
                                     <td>Some status <i class="far fa-check-circle"></i></td>
