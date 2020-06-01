@@ -7,7 +7,7 @@
 api.js*
 /uploads
 eventer.js*
-apiQueries.js
+apiQueries.js*
 
 # testing
 /coverage
