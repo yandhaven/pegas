@@ -9,7 +9,8 @@ let initialState = {
         tempValues: {
             notes: null,
             attachments:null,
-            todoid: null
+            todoid: null,
+            attachmentsApart: null
         },
     }
     
@@ -34,6 +35,10 @@ export let tempNotes = (notes) => {
 
 export let tempTodoid = (todoid) => {
     return { type: 'TEMP_TODOID', todoid }  
+}
+
+export let loadAttachApart = (attach) => {
+    return { type: 'LOAD_ATTACHAPART', attach }  
 }
 
 
@@ -79,6 +84,15 @@ const contabReducer = (state = initialState, action) => {
             let newState = {...state}
             newState.todo.tempValues = {...state.todo.tempValues}
             newState.todo.tempValues.todoid = action.todoid
+
+            return newState
+        }
+
+        case 'LOAD_ATTACHAPART': {
+            
+            let newState = {...state}
+            newState.todo.tempValues = {...state.todo.tempValues}
+            newState.todo.tempValues.attachmentsApart = action.attach
 
             return newState
         }
