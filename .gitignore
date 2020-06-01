@@ -4,9 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-api.js
+api.js*
 /uploads
-eventer.js
+eventer.js*
 apiQueries.js
 
 # testing
