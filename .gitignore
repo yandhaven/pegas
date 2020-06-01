@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+api.js
+/uploads
+eventer.js
+apiQueries.js
 
 # testing
 /coverage

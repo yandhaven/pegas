@@ -10,8 +10,8 @@ const nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'info@pegastransbg.com',
-        pass: 'A069007007a'
+        user: '--',
+        pass: '--'
     }
 });
 
