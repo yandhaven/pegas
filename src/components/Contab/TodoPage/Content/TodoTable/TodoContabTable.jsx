@@ -42,7 +42,7 @@ const TodoContabTable = (props) => {
                                     <td><Moment format="YYYY/MM/DD">{todos.create_date}</Moment></td>
                                     <td><Moment format="YYYY/MM/DD">{todos.todo_last_update}</Moment></td>
                                     <td><Moment format="YYYY/MM/DD">{todos.till_date}</Moment></td>
-                                    <td><button type="button" class="btn btn-info" style={{ margin: "3px" }}>Info</button></td>
+                                    <td><NavLink to={'/contab/'+todos.worker_id+'/todo/'+todos.todo_id}><button type="button" class="btn btn-info" style={{ margin: "3px" }}>Info</button></NavLink></td>
                                 </tr>
 
                             )

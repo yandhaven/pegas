@@ -25,13 +25,9 @@
     height: 844px;
     background-color: rgba(245, 245, 245, 0.438);
     overflow-y: scroll;
+    
 
 }
 
 .rcontcont::-webkit-scrollbar { width: 0 !important }
 
-.rcont{
-    padding: 10px;
-    grid-area: rcont;
-
-}

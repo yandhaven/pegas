@@ -5,6 +5,9 @@ import ContabTodoAttachmentsContainer from './Attachments/ContabTodoAttachmentsC
 
 const ContabTodoApart = (props) => {
 
+    console.log('hereee')
+    console.log(props.todo)
+
 
     let onChangeHandler = event => {
 
@@ -13,29 +16,33 @@ const ContabTodoApart = (props) => {
         console.log(props.tempAttachP)
     }
 
-    let onChangeNotes = (em) => {
+    let onChangeNotes = (e) => {
 
-        props.tempNotes(em.e.target.value);
-        props.tempTodoid(em.todo_id)
-        console.log(props.todoidtmp)
+        props.tempNotes(e.target.value);
+        
 
     }
 
-    let onUpdateBtn = () => {
+    let onUpdateBtn = (e) => {
 
-        let tmpdata = { todo_id: null };
+        let tmpdata = { todo_id: null, worker_id: null };
 
         if (!props.tempAttachP) {
-            tmpdata.todo_id = props.todoidtmp
+            tmpdata.todo_id = e.todo_id
             tmpdata.note = props.tempNotesP
+            tmpdata.worker_id = e.worker_id
 
         } else {
 
             tmpdata = props.tempAttachP
-            tmpdata.todo_id = props.todoidtmp
+            tmpdata.todo_id = e.todo_id
             tmpdata.note = props.tempNotesP
+            tmpdata.worker_id = e.worker_id
 
         }
+        // console.log(tmpdata)
+        console.log(tmpdata)
+
 
         props.uploadfiles(tmpdata)
     }
@@ -61,7 +68,7 @@ const ContabTodoApart = (props) => {
                                 <hr class="my-5" />
                                 <form><div class="form-group">
                                     <label for="exampleFormControlTextarea1">Enter your comment here:</label>
-                                    <textarea class="form-control" onChange={(e) => onChangeNotes({ e: e, todo_id: todo.todo_id })} id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" onChange={onChangeNotes} id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div></form>
                                 <p>Attach files</p>
                                 <form>
@@ -71,7 +78,7 @@ const ContabTodoApart = (props) => {
                                     </div>
                                 </form>
                                 <p class="lead">
-                                    <a class="btn btn-primary btn-lg" onClick={onUpdateBtn} href="#" role="button">UPDATE</a>
+                                    <a class="btn btn-primary btn-lg" onClick={()=>onUpdateBtn({worker_id: todo.worker_id, todo_id: todo.todo_id})} href="#" role="button">UPDATE</a>
                                     {/* <img src={require('./../../../../../uploads/35896.png')} /> */}
 
 
@@ -85,7 +92,7 @@ const ContabTodoApart = (props) => {
 
             <div className={modules.rcontcont}>
 
-                <ContabTodoAttachmentsContainer/>
+                <ContabTodoAttachmentsContainer className={modules.rcont}/>
 
             </div>
 

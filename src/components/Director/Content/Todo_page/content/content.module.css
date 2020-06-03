@@ -23,3 +23,6 @@
     height: 800px;
     overflow-y: scroll;
 }
+
+
+.tablecont::-webkit-scrollbar { width: 0 !important }

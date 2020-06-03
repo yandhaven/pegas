@@ -15,10 +15,13 @@ class ContabTodoApartContainer extends React.Component{
     }
 
     uploadFiles(data){
+        
         const varia = new FormData()
         varia.append('file', data)
         varia.append('id', data.todo_id)
         varia.append('note', data.note)
+        varia.append('worker_id', data.worker_id)
+
         
     
         axios.post(`https://localhost:3033/upload`, varia).then(res =>{

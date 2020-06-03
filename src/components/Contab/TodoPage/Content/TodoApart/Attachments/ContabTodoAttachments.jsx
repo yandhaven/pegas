@@ -2,6 +2,7 @@ import React from 'react'
 import modules from './ContabTodoAttachments.module.css'
 import Moment from 'react-moment'
 import 'moment-timezone';
+// require('./../../../../../../uploads')
 
 const ContabTodoAttachments = (props) => {
 
@@ -11,9 +12,10 @@ const ContabTodoAttachments = (props) => {
         )
     }
     return (
-        <div>
+        <div className={modules.gencontent}>
 
-            <div className={modules.rcont}>{props.attachmentsApart.map(attach => {
+            {props.attachmentsApart.map(attach => {
+
                 const varia = () => {
                     if (!attach.notes) {
                         return 'No comment'
@@ -25,26 +27,41 @@ const ContabTodoAttachments = (props) => {
 
                 }
 
+                const imgPath = () => {
+                    if (!attach.attach_filename) {
+                        return <div>No attachments</div>
+
+                    } else {
+
+                        return <img src={require(`./../../../../../../uploads/${attach.attach_filename}`)} class="rounded mx-auto d-block" style={{ width: '20%' }} alt="..." />
+
+                    }
+
+                }
 
                 return (
-                    <div class="jumbotron">
 
-                        <p class="lead display-4">{varia()}</p>
-                        <p><Moment local locale="en" format='MMMM Do YYYY, HH:mm:ss'>{attach.create_date}</Moment></p>
-                        <hr class="my-5" />
+                    <div class="jumbotron" >
+                        <div className={modules.jtron}>
+                            <p><Moment local locale="en" format='MMMM Do YYYY, HH:mm:ss'>{attach.create_date}</Moment></p>
+                            <h3 class="">{attach.worker_name}</h3>
+                            <p class="lead">{varia()}</p>
+                            <hr class="my-4" />
+                            <p class="lead">
+                                <p>Attachments:</p>
+                                {imgPath()}
 
-                        <p>Attachment:</p>
-
-                        <p class="lead">
-                            <img src={require('./../../../../../../uploads/35896.png')} class="rounded mx-auto d-block" style={{ width: '20%' }} alt="..." />
-
-                            {/* <img src={require('./../../../../../uploads/35896.png')} /> */}
-
-
-                        </p>
+                            </p>
+                        </div>
                     </div>
+
                 )
-            })}</div>
+            })}
+
+
+
+
+
         </div>
     )
 }
