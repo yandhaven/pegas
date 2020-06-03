@@ -5,7 +5,8 @@
 /.pnp
 .pnp.js
 api.js*
-/src/uploads
+/uploads/.jpg
+/uploads/.png
 eventer.js*
 apiQueries.js*
 /api
