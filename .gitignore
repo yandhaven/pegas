@@ -5,11 +5,12 @@
 /.pnp
 .pnp.js
 api.js*
-/uploads
+/uploads*
 eventer.js*
 apiQueries.js*
 /api
 .pem
+
 
 # testing
 /coverage
