@@ -1,11 +1,12 @@
 .gencontent {
-    height: 916px;
+    /* height: 916px; */
 
 }
 
 .tablecont{
+    
 
-    height: 800px;
+    height: 435px;
     overflow-y: scroll;
     background-color: whitesmoke;
 }

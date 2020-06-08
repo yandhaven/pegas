@@ -5,15 +5,28 @@ let initialState = {
 
     todolist: {value:null} ,
     workers: null,
+    todo:null,
     createWork: {
         tempValues:{
             workerID: null,
             subject: null,
             date: null,
             comment: null,
-            till_date: null
+            till_date: null,
+            status: 'not read'
+            
         },
+
         isSubmited: 0
+    },
+    todoapart:{
+        tempValues: {
+            notes: null,
+            attachments:null,
+            todoid: null,
+            attachmentsApart: null
+
+        }
     }
 
 
@@ -23,6 +36,22 @@ let initialState = {
 //Load todoList from DB.
 export let loadTodo = (todos) => {
     return { type: 'LOAD_TODO', todos }  
+}
+//Temp attachment file to post it to db
+export let tempAttach = (attach) => {
+    return { type: 'TEMP_ATTACH', attach }  
+}
+//Set temp notes to post 
+export let tempNotes = (notes) => {
+    return { type: 'TEMP_NOTES', notes }  
+}
+//Load selected todo from db
+export let loadTodoApart = (todo) => {
+    return { type: 'LOAD_TODOAPART', todo }  
+}
+//load attachments form db
+export let loadAttachApart = (attach) => {
+    return { type: 'LOAD_ATTACHAPART', attach }  
 }
 //Load workers
 export let loadWorkers = (workers) => {
@@ -60,6 +89,41 @@ const directorReducer = (state = initialState, action) => {
             
             let newState = {...state}
             newState.todolist.value = action.todos
+
+            return newState
+        }
+
+        case 'TEMP_NOTES': {
+            
+            let newState = {...state}
+            newState.todoapart.tempValues = {...state.todoapart.tempValues}
+            newState.todoapart.tempValues.notes = action.notes
+
+            return newState
+        }
+//Temp attachment file to post it to db
+        case 'TEMP_ATTACH': {
+            
+            let newState = {...state}
+            newState.todoapart.tempValues = {...state.todoapart.tempValues}
+            newState.todoapart.tempValues.attachments = action.attach
+
+            return newState
+        }
+
+        case 'LOAD_ATTACHAPART': {
+            
+            let newState = {...state}
+            newState.todoapart.tempValues = {...state.todoapart.tempValues}
+            newState.todoapart.tempValues.attachmentsApart = action.attach
+
+            return newState
+        }
+
+        case 'LOAD_TODOAPART': {
+            
+            let newState = {...state}
+            newState.todo = action.todo
 
             return newState
         }

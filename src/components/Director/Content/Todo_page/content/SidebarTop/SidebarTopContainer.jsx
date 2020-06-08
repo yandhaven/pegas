@@ -12,11 +12,18 @@ const TodoCreate =(props)=>{
 
     
 
+    
+
 
    const onSubmithandle = ()=>{
 
 
         let dataToPost = props.newtodo
+        let actualwkID = props.match.params.workerid
+        dataToPost.created_by = actualwkID
+        
+
+        console.log(dataToPost)
 
         axios.post('https://localhost:3033/todos/new', dataToPost).then(res => {
             console.log(res.data);
@@ -28,7 +35,15 @@ const TodoCreate =(props)=>{
     
         return(
             <div>
-                <SideBarTopContent  newtodo={props.newtodo}  createTodo={props.createTodo} onSubmitTodo={onSubmithandle} setComment={props.setComment} setSubject={props.setSubject} setWorkerID={props.setWorkerID} setDate={props.setDate} />
+                <SideBarTopContent  
+                actualwkID={props.actualwkID}
+                newtodo={props.newtodo}  
+                createTodo={props.createTodo} 
+                onSubmitTodo={onSubmithandle} 
+                setComment={props.setComment} 
+                setSubject={props.setSubject} 
+                setWorkerID={props.setWorkerID} 
+                setDate={props.setDate} />
             </div>
         )
     

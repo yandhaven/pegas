@@ -7,35 +7,39 @@ import { withRouter } from 'react-router-dom'
 
 class TodoContabTableContainer extends React.Component {
 
-    componentDidMount(){
+    componentDidMount() {
 
         console.log(this.props)
         const worker_id = this.props.match.params.workerid
 
-        axios.get(`https://localhost:3033/todos/${worker_id}`).then(res => this.props.loadTodo(res.data),()=>{console.log(this.props)})
-        
+        axios.get(`https://localhost:3033/todos/${worker_id}`).then(res => this.props.loadTodo(res.data), () => { console.log(this.props) })
+
     }
 
     
 
-    render(){
-        return(
-            <TodoContabTable todos={this.props.todos}/>
+
+
+    render() {
+        return (
+            <TodoContabTable 
+            todos={this.props.todos}
+             />
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         todos: state.contabPage.todolist
 
     }
 }
 
-const mapDispatchToProps =(dispatch)=>{
+const mapDispatchToProps = (dispatch) => {
     return {
 
-        loadTodo: (todos)=>{
+        loadTodo: (todos) => {
             dispatch(loadTodo(todos))
         }
 

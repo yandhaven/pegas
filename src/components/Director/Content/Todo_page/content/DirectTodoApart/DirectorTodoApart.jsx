@@ -1,25 +1,31 @@
 import React from 'react'
-import modules from './ContabTodoApart.module.css'
-import ContabTodoAttachmentsContainer from './Attachments/ContabTodoAttachmentsContainer'
+import modules from './DirectorTodoApart.module.css'
+import DirectorTodoAttachmentsContainer from './Attachments/DirectorTodoAttachmentsContainer'
+import { setCommentTodo } from '../../../../../../redux/director-reducer'
 
-
-const ContabTodoApart = (props) => {
-
-    // console.log('hereee')
-    // console.log(props)
-
-
+const DirectorTodoApart = (props) => {
+    console.log('hereee')
+    console.log(props)
     let onChangeHandler = event => {
-
-        // console.log(event.target.files[0])
+        console.log(event.target.files[0])
         props.tempAttach(event.target.files[0])
-        // console.log(props.tempAttachP)
+        console.log(props.tempAttachP)
     }
-
     let onChangeNotes = (e) => {
 
         props.tempNotes(e.target.value);
         
+    }
+
+    let isDoneBtn = (e) =>{
+        let tmpdata = { todo_id: null, worker_id: null };
+        tmpdata.todo_id = e.todo_id
+        tmpdata.worker_id = e.worker_id
+
+        console.log(tmpdata)
+
+        props.setStatusDone(tmpdata)
+
 
     }
 
@@ -33,17 +39,13 @@ const ContabTodoApart = (props) => {
             tmpdata.worker_id = props.actualwkid
 
         } else {
-
             tmpdata = props.tempAttachP
             tmpdata.todo_id = e.todo_id
             tmpdata.note = props.tempNotesP
             tmpdata.worker_id = props.actualwkid
-
         }
         // console.log(tmpdata)
         // console.log(tmpdata)
-
-
         props.uploadfiles(tmpdata)
         props.setUpdateTodo(tmpdata)
     }
@@ -52,7 +54,6 @@ const ContabTodoApart = (props) => {
         return (
             <div>Loading...</div>
         )
-
     }
     return (
 
@@ -79,34 +80,22 @@ const ContabTodoApart = (props) => {
                                     </div>
                                 </form>
                                 <p class="lead">
-                                    <a class="btn btn-primary btn-lg" onClick={()=>onUpdateBtn({worker_id: todo.worker_id, todo_id: todo.todo_id})} href="#" role="button">UPDATE</a>
+                                    <button class="btn btn-primary btn-lg" onClick={() => onUpdateBtn({ worker_id: todo.worker_id, todo_id: todo.todo_id })}  role="button">UPDATE</button>
+                                    <button class="btn btn-primary btn-lg" onClick={() => isDoneBtn({ worker_id: todo.worker_id, todo_id: todo.todo_id })}  style={{margin: '7px'}} >Is DONE!</button>
                                     {/* <img src={require('./../../../../../uploads/35896.png')} /> */}
-
 
                                 </p>
                             </div>
                         )
                     })}
-
                 </div>
             </div>
-
             <div className={modules.rcontcont}>
-
-                <ContabTodoAttachmentsContainer className={modules.rcont}/>
-
+                <DirectorTodoAttachmentsContainer className={modules.rcont} />
             </div>
-
-
-
-
         </div>
-
-
-
-
 
     )
 }
 
-export default ContabTodoApart;
+export default DirectorTodoApart;

@@ -24,19 +24,19 @@ export let loadTodo = (todos) => {
 export let loadTodoApart = (todo) => {
     return { type: 'LOAD_TODOAPART', todo }  
 }
-
+//set attach to upload(buffer)
 export let tempAttach = (attach) => {
     return { type: 'TEMP_ATTACH', attach }  
 }
-
+//set notes to upload
 export let tempNotes = (notes) => {
     return { type: 'TEMP_NOTES', notes }  
 }
-
+//set temp id (never used)
 export let tempTodoid = (todoid) => {
     return { type: 'TEMP_TODOID', todoid }  
 }
-
+//load attachments from db
 export let loadAttachApart = (attach) => {
     return { type: 'LOAD_ATTACHAPART', attach }  
 }
@@ -73,8 +73,8 @@ const contabReducer = (state = initialState, action) => {
         case 'TEMP_ATTACH': {
             
             let newState = {...state}
-            newState.todo = {...state.todo}
-            newState.todo.attachments = action.attach
+            newState.todo.tempValues = {...state.todo.tempValues}
+            newState.todo.tempValues.attachments = action.attach
 
             return newState
         }

@@ -1,0 +1,32 @@
+.gencontainer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto;
+    grid-template-areas: "lcont rcont";
+    grid-gap: 7px;
+    grid-template-columns: 3fr 7fr;
+    grid-column-gap: 15px;
+    padding: 25px;
+    text-decoration: none;
+}
+
+
+.lcont{
+    grid-area: lcont;
+
+}
+
+.lcontcont{
+
+}
+
+.rcontcont{
+
+    height: 844px;
+    background-color: rgba(245, 245, 245, 0.438);
+    overflow-y: scroll;
+    
+
+}
+
+.rcontcont::-webkit-scrollbar { width: 0 !important }

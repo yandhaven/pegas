@@ -5,27 +5,32 @@ import { withRouter } from 'react-router-dom'
 import ContabTodoApart from './ContabTodoApart'
 import { loadTodoApart, tempAttach, tempNotes, tempTodoid } from '../../../../../redux/contab-reducer'
 
-class ContabTodoApartContainer extends React.Component{
+class ContabTodoApartContainer extends React.Component {
 
-    componentDidMount(){
-        const todoid = this.props.match.params.todoid
-        
-        axios.get(`https://localhost:3033/todo/${todoid}`).then(res => this.props.loadTodoApart(res.data))
-        
+    state = {
+        worker_id: this.props.match.params.workerid
     }
 
-    uploadFiles(data){
-        
+    componentDidMount() {
+        const todoid = this.props.match.params.todoid
+
+
+        axios.get(`https://localhost:3033/todo/${todoid}`).then(res => this.props.loadTodoApart(res.data))
+
+    }
+
+    uploadFiles(data) {
+
         const varia = new FormData()
         varia.append('file', data)
         varia.append('id', data.todo_id)
         varia.append('note', data.note)
         varia.append('worker_id', data.worker_id)
 
-        
-    
-        axios.post(`https://localhost:3033/upload`, varia).then(res =>{
-            if(res.statusText === 'OK'){
+
+
+        axios.post(`https://localhost:3033/upload`, varia).then(res => {
+            if (res.statusText === 'OK') {
                 console.log(res.status)
                 window.location.reload(false)
 
@@ -33,54 +38,72 @@ class ContabTodoApartContainer extends React.Component{
         })
     }
 
-    render(){
-        return(
-            <ContabTodoApart 
-            todo={this.props.todo} 
-            tempTodoid={this.props.tempTodoid} 
-            todoidtmp={this.props.todoidtmp} 
-            uploadfiles={this.uploadFiles} 
-            tempNotesP={this.props.tempNotesP} 
-            tempAttachP={this.props.attach} 
-            tempNotes={this.props.tempNotes} 
-            tempAttach={this.props.tempAttach}/>
+
+    setUpdateTodo(todoid) {
+
+        // console.log(todoid)
+
+        let status = 'pending'
+
+        let data = { status: status, todoid: todoid.todo_id, updated: todoid.worker_id }
+        console.log('here')
+        console.log(data)
+
+
+
+        axios.put('https://localhost:3033/todo/updstatus', data).then(res => {
+
+            console.log(res.status)
+            window.location.reload(false)
+        })
+    }
+
+    
+
+    render() {
+        return (
+            <ContabTodoApart
+                todo={this.props.todo}
+                tempTodoid={this.props.tempTodoid}
+                uploadfiles={this.uploadFiles}
+                tempNotesP={this.props.tempNotesP}
+                tempAttachP={this.props.attach}
+                tempNotes={this.props.tempNotes}
+                actualwkid={this.state.worker_id} //worker id from actual session
+                tempAttach={this.props.tempAttach}
+                setUpdateTodo={this.setUpdateTodo} />
         )
     }
 }
 
-const mapStateToProps =(state)=>{
-    return{
+const mapStateToProps = (state) => {
+    return {
 
         todo: state.contabPage.todo.values,
-        attach: state.contabPage.todo.attachments,
+        attach: state.contabPage.todo.tempValues.attachments,
         tempNotesP: state.contabPage.todo.tempValues.notes,
-        todoidtmp: state.contabPage.todo.tempValues.todoid
-        
 
     }
 }
 
-const mapDispatchToProps =(dispatch)=>{
-    return{
+const mapDispatchToProps = (dispatch) => {
+    return {
 
-        loadTodoApart: (todo) =>{
+        loadTodoApart: (todo) => {
             dispatch(loadTodoApart(todo))
         },
 
-        tempAttach: (attach) =>{
+        tempAttach: (attach) => {
             dispatch(tempAttach(attach));
         },
 
-        tempNotes: (notes) =>{
+        tempNotes: (notes) => {
             dispatch(tempNotes(notes))
         },
 
-        tempTodoid: (todoid) => {
-            dispatch(tempTodoid(todoid));
-        }
 
     }
 }
 
 let ContabTodoApartWr = withRouter(ContabTodoApartContainer)
-export default connect(mapStateToProps,mapDispatchToProps)(ContabTodoApartWr);
+export default connect(mapStateToProps, mapDispatchToProps)(ContabTodoApartWr);
